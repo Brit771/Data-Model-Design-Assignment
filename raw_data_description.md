@@ -35,7 +35,7 @@ Entities and Relationships:
 ## Orders
 - Order ID (unique identifier)
 - Rider ID (linked to the rider placing the order)
-- Request Tim Time
+- Request Time
 - Pickup Location
 - Destination Location
 - Order Status

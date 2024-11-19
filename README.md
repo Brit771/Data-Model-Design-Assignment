@@ -4,7 +4,7 @@
 
 ### Project Overview
 This repository contains the solution to a data model design assignment for a ride-hailing company. The project demonstrates a complete relational database design, including expected raw data, an ER diagram, SQL schema creation, SQL and Python analysis code, and detailed documentation.
-
+![alt text](image.png)
 ### Tools Used
 - **Diagramming**: Draw.io
 - **Programming**: SQL, Python 3.9+
