@@ -3,6 +3,7 @@
 ## Ride-Hailing Data Model Assignment
 
 ### Project Overview
+
 This repository contains the solution to a data model design assignment for a ride-hailing company.
 It includes a complete relational database design, raw data assumptions, an ER diagram, SQL schema, analysis scripts, visualization, and supporting documentation.
 
@@ -14,8 +15,8 @@ It includes a complete relational database design, raw data assumptions, an ER d
 - **ER Diagram Relationship Notation**: Crow's foot
 - **ER Diagram visualization Tool**: Lucidchart
 
-
 ### Repository Contents
+
 1. [**`README.md`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/README.md): Brief overview of the project and repository.
 2. [**`documentation.md`**:](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md) Detailed documentation of assumptions, design decisions, and approach.
 3. [**`raw_data_description.md`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/raw_data_description.md): Description of the expected raw data for each entity.
@@ -26,11 +27,14 @@ It includes a complete relational database design, raw data assumptions, an ER d
 8. [**`requirements.txt`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/requirements.txt) - Required Python libraries for running the analysis visualization.
 
 ### Requirements
+
 To run the analysis and visualization scripts, the following are required:
+
 - Python 3.9+
 - Python libraries specified in the `requirements.txt` file.
 
 ### How to Use
+
 1. Clone this repository
 2. Refer to `documentation.md` for detailed explanations.
 3. Review the files:
@@ -38,6 +42,6 @@ To run the analysis and visualization scripts, the following are required:
    - ER Diagram: `Er_diagram.png`
 4. SQL Schema: Run `create_table.sql` in your database.
 5. SQL Analysis: Run `analysis.sql` in your database.
-5. To run the Python visualization:
+6. To run the Python visualization:
    - Install dependencies from `requirements.txt`
    - Execute `analysis_visualization_example.py`
