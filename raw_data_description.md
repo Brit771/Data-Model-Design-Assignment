@@ -12,27 +12,27 @@ Entities and Relationships:
 - Payments: Tracks payments made for rides.
 - Active_Drivers: Tracks real-time driver status, vehicle assignment, and location for order matching.
 
-## Riders
+## Riders 👤
 - Rider ID (unique identifier)
 - Full Name
 - Email
 - Phone Number
 
-## Drivers
+## Drivers 🧑‍✈️
 - Driver ID (unique identifier)
 - Full Name
 - Email
 - Phone Number
 - License Number
 
-## Vehicles
+## Vehicles 🚗
 - Vehicle ID (unique identifier)
 - License Plate
 - Make
 - Model
 - Vehicle Type (sedan, SUV, etc.)
 
-## Orders
+## Orders 📄
 - Order ID (unique identifier)
 - Rider ID (linked to the rider placing the order)
 - Request Time
@@ -40,7 +40,7 @@ Entities and Relationships:
 - Destination Location
 - Order Status
 
-## Rides
+## Rides 🛣️
 - Ride ID (unique identifier)
 - Order ID (Linked order ID for the ride)
 - Rider ID
@@ -54,7 +54,7 @@ Entities and Relationships:
 - Ride Status (completed, canceled, In Progress)
 - Total Fare
 
-## Payments
+## Payments 💸
 - Payment ID (unique identifier)
 - Ride ID
 - Amount
@@ -62,7 +62,7 @@ Entities and Relationships:
 - Payment Method (credit card, cash, etc.)
 - Payment Time
 
-## Active Drivers
+## Active Drivers 🟢
 - Driver ID (unique identifier)
 - Assigned Vehicle ID
 - Availability Status (available, on_trip)
