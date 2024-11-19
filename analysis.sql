@@ -16,4 +16,3 @@ ORDER BY RideDate ASC, RideHour ASC, TotalRides DESC;
 -- Aggregates completed rides by date, hour, and pickup location.
 -- Counts rides for each location-time combination.
 -- Sorts results chronologically, with busiest times/locations prioritized.
--- Ideal for generating visualizations like heatmaps or line charts.
