@@ -6,7 +6,7 @@
 This repository contains the solution to a data model design assignment for a ride-hailing company.
 It includes a complete relational database design, raw data assumptions, an ER diagram, SQL schema, analysis scripts, visualization, and supporting documentation.
 
-![alt text](image.png)
+![alt text](assets/image.png)
 
 ## Tools and Methodology
 
