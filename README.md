@@ -8,7 +8,7 @@ It includes a complete relational database design, raw data assumptions, an ER d
 
 ![alt text](assets/image.png)
 
-## Tools and Methodology
+### Tools and Methodology
 
 - **Technologies**: SQL, Python 3.9+
 - **ER Diagram Relationship Notation**: Crow's foot
