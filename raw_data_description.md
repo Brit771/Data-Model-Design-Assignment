@@ -62,6 +62,13 @@ Entities and Relationships:
 - Payment Method (credit card, cash, etc.)
 - Payment Time
 
+## Rates ⭐ 
+- Rating ID (unique identifier)
+- Ride ID
+- Rider ID
+- Driver ID
+- Score
+
 ## Active Drivers 🟢
 - Driver ID (unique identifier)
 - Assigned Vehicle ID
