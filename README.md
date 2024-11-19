@@ -16,14 +16,14 @@ It includes a complete relational database design, raw data assumptions, an ER d
 
 
 ### Repository Contents
-1. **`README.md`**: Brief overview of the project and repository.
-2. **`documentation.md`**: Detailed documentation of assumptions, design decisions, and approach.
-3. **`raw_data_description.md`**: Description of the expected raw data for each entity.
-4. **`ER_diagram.png`**: ER diagram illustrating the relationships in the data model.
-5. **`create_table.sql`**: SQL script to create a few tables from the schema.
-6. **`analysis.sql`**: SQL script for generating analysis outcomes.
-7. **`analysis_visualization_example.py`**: Python script to visualize analysis results.
-8. **`requirements.txt`** - Required Python libraries for running the analysis visualization.
+1. [**`README.md`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/README.md): Brief overview of the project and repository.
+2. [**`documentation.md`**:](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md) Detailed documentation of assumptions, design decisions, and approach.
+3. [**`raw_data_description.md`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/raw_data_description.md): Description of the expected raw data for each entity.
+4. [**`ER_diagram.png`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/ER_diagram.png): ER diagram illustrating the relationships in the data model.
+5. [**`create_table.sql`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/create_table.sql): SQL script to create a few tables from the schema.
+6. [**`analysis.sql`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/analysis.sql): SQL script for generating analysis outcomes.
+7. [**`analysis_visualization_example.py`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/analysis_visualization_example.py): Python script to visualize analysis results.
+8. [**`requirements.txt`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/requirements.txt) - Required Python libraries for running the analysis visualization.
 
 ### Requirements
 To run the analysis and visualization scripts, the following are required:
