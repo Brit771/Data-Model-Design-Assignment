@@ -18,7 +18,7 @@ Entities and Relationships:
 - Email
 - Phone Number
 
-## Drivers 🧑‍✈️
+## Drivers 🧑🏻‍💼
 - Driver ID (unique identifier)
 - Full Name
 - Email
