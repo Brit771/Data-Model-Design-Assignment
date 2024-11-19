@@ -63,6 +63,6 @@ This project is a ride-hailing system designed to manage riders, drivers, vehicl
 
 For example:
 
-![alt text](image-1.png)
+![alt text](assets/image-1.png)
 
 The heatmap above illustrates ride demand over time, with intensity indicating the volume of rides per location and hour. It highlights peak demand at specific times, such as Location A around 10 AM and Location B around 12 PM, aiding in more informed driver scheduling decisions.
