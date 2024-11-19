@@ -13,7 +13,6 @@ Entities:
 - Active_Drivers: Tracks real-time driver status, vehicle assignment, and location for order matching.
 - Rates: Stores ratings given by riders and drivers for completed rides.
 - Drivers_Offers: Stores offers made by drivers for orders, tracking the status of each offer.
-- Driver-Order Assignment: Records when a driver is assigned to an order after an offer is accepted.
 - Credit_Cards: Manages the payment methods used by riders for processing payments.
 
 ## Riders 👤
@@ -51,11 +50,7 @@ Entities:
 ## Rides 🛣️
 
 - Ride ID (unique identifier)
-- Assignment ID
-- Order ID
-- Rider ID
-- Driver ID
-- Vehicle ID
+- Offer ID
 - Actual Pickup Location
 - Dropoff Location
 - Start Time
@@ -68,17 +63,14 @@ Entities:
 
 - Payment ID (unique identifier)
 - Ride ID
-- Amount
+- Credit Card ID
 - Payment Status (paid, pending, failed)
-- Payment Method (credit card, cash, etc.)
 - Payment Time
 
 ## Rates ⭐
 
 - Rating ID (unique identifier)
 - Ride ID
-- Rider ID
-- Driver ID
 - Score
 
 ## Active Drivers 🟢
@@ -88,7 +80,7 @@ Entities:
 - Availability Status (available, on_trip)
 - Current Location
 
-## Drivers Offers 🏷️
+## Drivers Offers 🔗
 
 - Offer ID (unique identifier)
 - Order ID
@@ -96,14 +88,6 @@ Entities:
 - Offered at
 - Offer status
 - Answer Time
-
-## Driver-Order Assignment 🔗
-
-- Assignment ID (unique identifier)
-- Offer ID
-- Order ID
-- Driver ID
-- Assigned at
 
 ## Credit Cards 💳
 
