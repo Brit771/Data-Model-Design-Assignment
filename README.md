@@ -36,7 +36,8 @@ To run the analysis and visualization scripts, the following are required:
 3. Review the files:
    - Raw data description: `raw_data_description.md`
    - ER Diagram: `Er_diagram.png`
-   - SQL Schema: Run `create_table.sql` in your database.
-4. To run the Python visualization:
+4. SQL Schema: Run `create_table.sql` in your database.
+5. SQL Analysis: Run `analysis.sql` in your database.
+5. To run the Python visualization:
    - Install dependencies from `requirements.txt`
    - Execute `analysis_visualization_example.py`
