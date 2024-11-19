@@ -2,7 +2,7 @@
 # Ride-Hailing System Documentation
 
 ## Overview
-This project is a ride-hailing system designed to manage riders, drivers, vehicles, and payments. It aims to optimize resource usage and track ride demand by location and time to improve decision-making and operations.
+This project is a ride-hailing system designed to manage riders, drivers, vehicles, orders, rides and payments. It aims to optimize resource usage and track ride demand by location and time to improve decision-making and operations.
 
 --- 
 
@@ -14,6 +14,22 @@ This project is a ride-hailing system designed to manage riders, drivers, vehicl
 ## Design Decisions
 
 ### 1. **Entities and Relationships**
+
+Entities:
+
+- Riders: Stores information about riders.
+- Drivers: Stores static information about drivers.
+- Vehicles: Stores static information about vehicles.
+- Orders: Tracks ride requests placed by riders.
+- Rides: Tracks the lifecycle of a ride linked to orders, drivers, and vehicles.
+- Payments: Tracks payments made for rides.
+- Active_Drivers: Tracks real-time driver status, vehicle assignment, and location for order matching.
+- Rates: Stores ratings given by riders and drivers for completed rides.
+- Drivers_Offers: Stores offers made by drivers for orders, tracking the status of each offer.
+- Driver-Order Assignment: Records when a driver is assigned to an order after an offer is accepted.
+- Credit_Cards: Manages the payment methods used by riders for processing payments.
+
+
 
 #### **Riders, Drivers, and Vehicles**
    - **Riders**: Contains basic information about users (e.g., `FullName`, `Email`, `PhoneNumber`).
