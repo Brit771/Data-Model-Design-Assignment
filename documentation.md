@@ -5,7 +5,12 @@
 2. Outcomes and Analysis
 3. Expansion and Future Suggestions
 
+-- 
+
 ## Design Decisions and Assumptions
+
+![alt text](ER_diagram.png)
+
 
 ### Table Structure
 
@@ -29,7 +34,6 @@
 - Driver Selection: A prioritization algorithm selects the driver based on time of arrival, response speed, and driver rating.
 - Fare Calculation: The total fare and distance are calculated when the ride ends.
 
-
 ### Relationships
 
 - Drivers: A driver registers in the system and is stored in the Drivers table, where static driver information is kept. When a driver becomes active, they enter the Active Drivers table, which links them to a vehicle in the Vehicles table.
@@ -42,12 +46,11 @@
 - Payments: After the ride, payment is made via credit card. The payment is recorded in the Payments table, which is linked to the Credit Cards table (linked to the rider).
 - Credit Cards: The riders credit Cards are stored in the Credit Cards table.
 
-
 ---
 
-## Analysis and Outcomes
+## Outcomes and Analysis
 
-### 1. **Demand Analysis**:
+### 1. **Demand Analysis**
 
 - Demand analysis tracks ride demand by time and location, helping to identify peak periods and high-demand areas.
 
