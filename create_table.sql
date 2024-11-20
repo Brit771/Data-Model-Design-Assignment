@@ -1,63 +1,64 @@
 CREATE TABLE Riders (
-    RiderId INT PRIMARY KEY AUTO_INCREMENT,
+    RiderID INT AUTO_INCREMENT,
     FullName VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    PhoneNumber VARCHAR(10) UNIQUE NOT NULL
-);
-
-CREATE TABLE Drivers (
-    DriverID INT PRIMARY KEY AUTO_INCREMENT,
-    FullName VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) UNIQUE,
-    PhoneNumber VARCHAR(10)UNIQUE NOT NULL,
-    LicenseNumber VARCHAR(50) UNIQUE
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    PhoneNumber VARCHAR(10) NOT NULL,
+    PRIMARY KEY (RiderID)
 );
 
 CREATE TABLE Vehicles (
-    VehicleID INT PRIMARY KEY AUTO_INCREMENT,
-    LicensePlate VARCHAR(20) UNIQUE,
-    Make VARCHAR(50),
-    Model VARCHAR(50),
-    VehicleType ENUM('SUV', 'Sedan', 'Minivan') DEFAULT 'Sedan'
+    VehicleID INT AUTO_INCREMENT,
+    LicensePlate VARCHAR(20) NOT NULL UNIQUE,
+    Make VARCHAR(50) NOT NULL,
+    Model VARCHAR(50) NOT NULL,
+    VehicleType ENUM('Sedan', 'SUV', 'Truck', 'Van') NOT NULL,
+    PRIMARY KEY (VehicleID)
 );
 
 CREATE TABLE Orders (
-    OrderID INT PRIMARY KEY AUTO_INCREMENT,
-    RiderID INT,
-    RequestTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    OrderStatus ENUM('Pending', 'Accepted', 'Completed', 'Cancelled') DEFAULT 'Pending',
-    FOREIGN KEY (RiderID) REFERENCES Riders(RiderID) ON DELETE CASCADE
+    OrderID INT AUTO_INCREMENT,
+    RiderID INT NOT NULL,
+    RequestTime DATETIME NOT NULL,
+    PickupLocation VARCHAR(255) NOT NULL,
+    DestinationLocation VARCHAR(255) NOT NULL,
+    OrderStatus ENUM('Pending','Accepted' , 'Cancelled' ,'Completed') NOT NULL,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (RiderID) REFERENCES Riders(RiderID)
 );
+
+
+CREATE TABLE DriverOffers (
+    OfferID INT AUTO_INCREMENT,
+    OrderID INT NOT NULL,
+    DriverID INT NOT NULL,
+    OfferedAt DATETIME NOT NULL,
+    OfferStatus ENUM('Accepted', 'Rejected', 'Pending') NOT NULL,
+    AnswerTime DATETIME,
+    PRIMARY KEY (OfferID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+    FOREIGN KEY (DriverID) REFERENCES ActiveDrivers(DriverID)
+);
+
 
 CREATE TABLE Rides (
-    RideID INT PRIMARY KEY AUTO_INCREMENT,
-    OrderID INT NOT NULL,
-    RiderID INT NOT NULL,
-    DriverID INT NOT NULL,
-    VehicleID INT NOT NULL,
-    PickupLocation VARCHAR(255)  NOT NULL, 
-    DropoffLocation VARCHAR(255)  NOT NULL,
-    StartTime DATETIME,
-    EndTime DATETIME,
-    Distance DECIMAL(10, 2), -- assuming distance is in kilometers or miles
+    RideID INT AUTO_INCREMENT,
+    OfferID INT NOT NULL,
+    ActualPickupLocation VARCHAR(255) NOT NULL,
+    DropoffLocation VARCHAR(255) NOT NULL,
+    StartTime DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    EndTime DATETIME, -- Populated when the ride ends,
+    Distance DECIMAL(10, 2)  DEFAULT 0, -- Updated after ride ends
     RideStatus ENUM('In Progress', 'Completed', 'Cancelled') DEFAULT 'In Progress',
-    TotalFare DECIMAL(10, 2), -- assuming TotalFare in NIS
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE,
-    FOREIGN KEY (RiderID) REFERENCES Riders(RiderID) ON DELETE CASCADE,
-    FOREIGN KEY (DriverID) REFERENCES Drivers(DriverID) ON DELETE CASCADE,
-    FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID) ON DELETE CASCADE
+    TotalFare DECIMAL(10, 2) DEFAULT 0, -- Updated after ride ends
+    PRIMARY KEY (RideID),
+    FOREIGN KEY (OfferID) REFERENCES DriverOffers(OfferID)
 );
 
-
-CREATE TABLE Payments (
-    PaymentID INT PRIMARY KEY AUTO_INCREMENT,
-    RideID INT NOT NULL,
-    Amount DECIMAL(10, 2) NOT NULL,
-    PaymentStatus ENUM('Pending', 'Completed', 'Failed') DEFAULT 'Pending',
-    PaymentMethod ENUM('Credit Card', 'Cash') NOT NULL,
-    PaymentTime DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (RideID) REFERENCES Rides(RideID) ON DELETE CASCADE
-    FOREIGN KEY (Amount) REFERENCES Rides(TotalFare) ON DELETE CASCADE
+CREATE TABLE Ratings (
+  RatingID INT AUTO_INCREMENT,
+  RideID INT NOT NULL,
+  Score ENUM('1', '2', '3', '4', '5') NOT NULL,
+  PRIMARY KEY (RatingID),
+  FOREIGN KEY (RideID) REFERENCES Rides(RideID)
 );
-
 
