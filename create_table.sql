@@ -26,7 +26,6 @@ CREATE TABLE Orders (
     FOREIGN KEY (RiderID) REFERENCES Riders(RiderID)
 );
 
-
 CREATE TABLE DriverOffers (
     OfferID INT AUTO_INCREMENT,
     OrderID INT NOT NULL,
@@ -38,7 +37,6 @@ CREATE TABLE DriverOffers (
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
     FOREIGN KEY (DriverID) REFERENCES ActiveDrivers(DriverID)
 );
-
 
 CREATE TABLE Rides (
     RideID INT AUTO_INCREMENT,
@@ -53,7 +51,6 @@ CREATE TABLE Rides (
     PRIMARY KEY (RideID),
     FOREIGN KEY (OfferID) REFERENCES DriverOffers(OfferID)
 );
-
 
 CREATE TABLE Ratings (
   RatingID INT AUTO_INCREMENT,
