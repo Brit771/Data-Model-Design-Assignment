@@ -59,4 +59,3 @@ CREATE TABLE Ratings (
   PRIMARY KEY (RatingID),
   FOREIGN KEY (RideID) REFERENCES Rides(RideID)
 );
-

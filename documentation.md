@@ -32,7 +32,7 @@
 - Vehicle Assignment: A vehicle can only be assigned to one active driver at a time.
 - Payment: Customers can only pay with a credit card in a single payment upon ride completion.
 - Driver Location: The driver's location is sampled and updated at regular intervals and at the end of a ride.
-- Driver Selection: A prioritization algorithm selects the driver based on time of arrival, response speed, and driver rating.
+- Driver Selection: A prioritization algorithm selects the driver based on time of arrival, response speed, and driver rating. So even though many drivers can approve a offer for a particular order, only one will be selected and linked to the actual ride.
 - Fare Calculation: The total fare and distance are calculated when the ride ends.
 - Location field foramt: Area/Zone, Street Name, City, Postal Code
 
