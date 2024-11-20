@@ -63,7 +63,7 @@
     - 1-to-many: A rider can place multiple orders or none.
     - 1-to-1: Each order is associated with one rider.
 
-# Potential Limitations of Current Design
+### Potential Limitations of Current Design
 
 Here are a few limitations of the current design and solutions suggestions to address them:
 
