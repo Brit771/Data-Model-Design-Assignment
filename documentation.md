@@ -13,19 +13,18 @@
 
 ![alt text](ER_diagram.png)
 
-
 ### Table Structure
 
-1. Drivers Table: Stores static information about drivers such as name, contact, and licensing details.
-2. Vehicles Table: Contains information about the vehicles registered by drivers, such as vehicle type and model. Each vehicle can be linked to only one active driver.
-3. Active Drivers Table: Tracks dynamic data for active drivers, including the vehicle they are using. A driver enters this table once they mark themselves as active.
-4. Riders Table: Stores information about passengers who create accounts and want to be able to request rides.
-5. Orders Table: Stores ride requests made by riders, which are later sent as offers to active drivers.
-6. Drivers Offers Table: Stores the rides order offers that has been sent to the active drivers.
-7. Rides Table: Records all rides information like  pickup location, ride status, total fare etc. The table is linked to one accepted order offer.
-8. Payments Table: Stores payment information related to completed rides. Payments can only be made via credit card.
-9. Credit Cards Table: Contains credit card details of users, which are used for payment processing.
-10. Rates - In the end of the ride, the rider can rate the ride that can be linked to the driver eventually.
+1. **Drivers Table**- Stores static information about drivers such as name, contact, and licensing details.
+2. **Vehicles Table**- Contains information about the vehicles registered by drivers, such as vehicle type and model. Each vehicle can be linked to only one active driver.
+3. **Active Drivers Table**- Tracks dynamic data for active drivers, including the vehicle they are using. A driver enters this table once they mark themselves as active.
+4. **Riders Table**- Stores information about passengers who create accounts and want to be able to request rides.
+5. **Orders Table**- Stores ride requests made by riders, which are later sent as offers to active drivers.
+6. **Drivers Offers Table**- Stores the rides order offers that has been sent to the active drivers.
+7. **Rides Table**- Records all rides information like  pickup location, ride status, total fare etc. The table is linked to one accepted order offer.
+8. **Payments Table**- Stores payment information related to completed rides. Payments can only be made via credit card.
+9. **Credit Cards Table**- Contains credit card details of users, which are used for payment processing.
+10. **Rates**- In the end of the ride, the rider can rate the ride that can be linked to the driver eventually.
 
 ### Assumptions
 
@@ -35,20 +34,44 @@
 - Driver Location: The driver's location is sampled and updated at regular intervals and at the end of a ride.
 - Driver Selection: A prioritization algorithm selects the driver based on time of arrival, response speed, and driver rating.
 - Fare Calculation: The total fare and distance are calculated when the ride ends.
+- Location field foramt: Area/Zone, Street Name, City, Postal Code
 
 ### Relationships
 
-- **Drivers ↔ Active Drivers**: A driver becomes active by being linked to an active driver entry with vehicle and location info.
-- **Active Drivers ↔ Vehicles**: Each active driver is linked to a single and unique vehicle.
-- **Riders ↔ Orders**: A rider can place multiple orders, but each order belongs to one rider.
-- **Orders ↔ Driver Offers**: Each order can havea multiple driver offers that sent to a active drivers, but each offer is linked to one order.
-- **Active Drivers ↔ Driver Offers**: Active driver can get multiple offers, and offer is uniqe for a driver.
-offer can be sent Each Driver Offers sent to an active driver. 
-- **Driver Offers ↔ Rides**: Driver offer leads to a ride if accepted, with one offer linked to one ride.
-- **Rides ↔ Payments**: Each ride has one associated payment once completed.
-- **Credit Cards ↔ Payments**: A payment is associated with a single credit card, but each credit card can be linked to multiple payments.
-- **Riders ↔ Credit Cards**: A rider can have multiple credit cards, each linked to one rider.
-- **Rides ↔ Rates**: After the ride, a rider can rate it, linking one rating to one ride.
+- **Drivers ↔ Active Drivers**-
+    - 1-to-1: A driver may appear in the Active_Drivers table once, or not at all.
+    - 1-to-1: A vehicle may be assigned to one active driver, or none.
+- **Active Drivers ↔ Driver Offers**-
+    - 1-to-many: An active driver can receive multiple offers or none.
+    - 1-to-1: Each offer is associated with one active driver.
+- **Driver Offers ↔ Orders**-
+    - many-to-1: Multiple offers can be linked to the same order.
+    - 1-to-1: Each offer is tied to one specific order.
+- **Driver Offers ↔ Rides**-
+    - 1-to-1 : An offer may result in one ride if accepted, or none.
+    - 1-to-1: Each ride corresponds to one accepted offer and order.
+- **Rides ↔ Payments**-
+    - 1-to-1 : A ride may have one payment, or none if unpaid.
+    - 1-to-1: Each payment is linked to a single ride.
+- **Payments ↔ Credit Cards**-
+    - many-to-1: Multiple payments can be processed by the same credit card.
+    - 1-to-1: Each payment is tied to one credit card.
+- **Credit Cards ↔ Riders**-
+    - 1-to-many: A rider can own none or multiple credit cards.
+    - 1-to-many: Each credit card belongs to a few rider.
+- **Riders ↔ Orders**-
+    - 1-to-many: A rider can place multiple orders or none.
+    - 1-to-1: Each order is associated with one rider.
+
+# Potential Limitations of Current Design
+
+Here are a few Limitations of Current Design and solutions suggestion to address them:
+
+| **Subject**                   | **Limitation**                                                                                      | **Solution**                                                                                             |
+|-------------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Driver Activation History** | No record of when drivers activate/deactivate, losing history for analysis.                        | We can Use an `Activation_History` table to log each activation/deactivation event and vehicle assignments with timestamps.             |
+| **Driver Location**           | `CurrentLocation` in `Active_Drivers` doesn’t track historical movements or ensure real-time updates. | We can Add a `Driver_Location_History` table to store GPS updates with timestamps.                              |
+| **Future Enhancements**       | Lacks support for features like scheduled trips or driver shift tracking.                          | We can include modular tables like `Scheduled_Trips` or `Shifts` for extensibility.
 
 ---
 
@@ -69,12 +92,3 @@ For example:
 ![alt text](assets/image-1.png)
 
 The heatmap above illustrates ride demand over time, with intensity indicating the volume of rides per location and hour. It highlights peak demand at specific times, such as Location A around 10 AM and Location B around 12 PM, aiding in more informed driver scheduling decisions.
-
----
-
-### Expansion and Future Suggestions
-
-- Future Orders: Allow riders to schedule future rides.
-- Subscriptions: Introduce business or regular subscriptions with discounts for business users.
-- Driver Shift History: Track driver shift history, total income, commissions, and ride counts.
-- Driver Rating: Implement a dynamic driver rating system influencing prioritization.
