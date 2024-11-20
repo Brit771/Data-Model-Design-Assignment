@@ -1,67 +1,47 @@
 
 # Ride-Hailing System Documentation
 
-## Overview
-This project is a ride-hailing system designed to manage riders, drivers, vehicles, orders, rides and payments. It aims to optimize resource usage and track ride demand by location and time to improve decision-making and operations.
+1. Design Decisions and Assumptions
+2. Outcomes and Analysis
+3. Expansion and Future Suggestions
 
---- 
+## Design Decisions and Assumptions
 
-## Tools and Methodology
+### Table Structure
 
-- **ER Diagram Relationship Notation**: Crow's foot
-- **Visualization Tool**: Lucidchart
+1. Drivers Table: Stores static information about drivers such as name, contact, and licensing details.
+2. Vehicles Table: Contains information about the vehicles registered by drivers, such as vehicle type and model. Each vehicle can be linked to only one active driver.
+3. Active Drivers Table: Tracks dynamic data for active drivers, including the vehicle they are using. A driver enters this table once they mark themselves as active.
+4. Riders Table: Stores information about passengers who create accounts and want to be able to request rides.
+5. Orders Table: Stores ride requests made by riders, which are later sent as offers to active drivers.
+6. Drivers Offers Table: Stores the rides order offers that has been sent to the active drivers.
+7. Rides Table: Records all rides information like  pickup location, ride status, total fare etc. The table is linked to one accepted order offer.
+8. Payments Table: Stores payment information related to completed rides. Payments can only be made via credit card.
+9. Credit Cards Table: Contains credit card details of users, which are used for payment processing.
+10. Rates - In the end of the ride, the rider can rate the ride that can be linked to the driver eventually.
 
-## Design Decisions
+### Assumptions
 
-### 1. **Entities and Relationships**
-
-Entities:
-
-- Riders: Stores information about riders.
-- Drivers: Stores static information about drivers.
-- Vehicles: Stores static information about vehicles.
-- Orders: Tracks ride requests placed by riders.
-- Rides: Tracks the lifecycle of a ride linked to orders, drivers, and vehicles.
-- Payments: Tracks payments made for rides.
-- Active_Drivers: Tracks real-time driver status, vehicle assignment, and location for order matching.
-- Rates: Stores ratings given by riders and drivers for completed rides.
-- Drivers_Offers: Stores offers made by drivers for orders, tracking the status of each offer.
-- Driver-Order Assignment: Records when a driver is assigned to an order after an offer is accepted.
-- Credit_Cards: Manages the payment methods used by riders for processing payments.
-
+- Driver Offers: Offers are only sent to active drivers.
+- Vehicle Assignment: A vehicle can only be assigned to one active driver at a time.
+- Payment: Customers can only pay with a credit card in a single payment upon ride completion.
+- Driver Location: The driver's location is sampled and updated at regular intervals and at the end of a ride.
+- Driver Selection: A prioritization algorithm selects the driver based on time of arrival, response speed, and driver rating.
+- Fare Calculation: The total fare and distance are calculated when the ride ends.
 
 
-#### **Riders, Drivers, and Vehicles**
-   - **Riders**: Contains basic information about users (e.g., `FullName`, `Email`, `PhoneNumber`).
-   - **Drivers**: Stores information about drivers (e.g., `FullName`, `Email`, `PhoneNumber`, `LicenseNumber`).
-   - **Vehicles**: Details of vehicles available for rides (e.g., `LicensePlate`, `Make`, `Model`, `VehicleType`).
+### Relationships
 
-#### **Orders**
-   - **Orders**: Records a rider's request for a ride, including `RiderID`, `RequestTime`, and `OrderStatus` (e.g., Pending, Accepted, Completed).
+- Drivers: A driver registers in the system and is stored in the Drivers table, where static driver information is kept. When a driver becomes active, they enter the Active Drivers table, which links them to a vehicle in the Vehicles table.
+- Vehicles: A vehicle is assigned to only one driver in the Active drivers table.
+- Active Drivers: Active drivers are linked to their vehicles in the Active Drivers table. Only active drivers receive ride offers, based on proximity and availability.
+- Riders: A rider places ride orders.
+- Order: The order is sent as an offer to relevant active drivers.
+- Offers: Sent to active drivers for ride offers.
+- Rides: The actual ride is recorded in the Rides table once a driver is selected for the ride.
+- Payments: After the ride, payment is made via credit card. The payment is recorded in the Payments table, which is linked to the Credit Cards table (linked to the rider).
+- Credit Cards: The riders credit Cards are stored in the Credit Cards table.
 
-#### **Rides**
-   - **Rides**: Tracks completed rides, including `RiderID`, `DriverID`, `VehicleID`, `PickupLocation`, `DropoffLocation`, `StartTime`, `EndTime`, `Distance`, `RideStatus` (e.g., In Progress, Completed), and `TotalFare`.
-
-#### **Payments**
-   - **Payments**: Stores payment records for completed rides, linking to the `Rides` table with details like `Amount`, `PaymentStatus` (e.g., Pending, Completed), and `PaymentMethod` (e.g., Credit Card, Cash).
-
-### 2. **How the Tables Are Linked**
-   - **Active Drivers and Vehicles**:
-     - A bridge table, `ActiveDrivers`, tracks which drivers are available, the vehicles they are assigned to, and their current location.
-   - **Order Acceptance**:
-     - `AcceptedOrderSuggestions` captures when a driver accepts an order, linking `DriverID`, `VehicleID`, and `OrderID` to mark an accepted ride.
-   - **Foreign Keys**:
-     - Foreign keys ensure that all relationships between riders, drivers, vehicles, and payments are valid.
-
----
-
-## Data Flow and Validations
-
-### 1. **Referential Integrity**
-- Each table is connected by foreign keys to maintain valid relationships. For example, rides are linked to orders, drivers, and vehicles, while payments are linked to rides.
-   
-### 2. **Unique Constraints**
-- Certain fields, like `LicensePlate` for vehicles and `Email` for riders, are unique to prevent duplicates.
 
 ---
 
@@ -82,3 +62,13 @@ For example:
 ![alt text](assets/image-1.png)
 
 The heatmap above illustrates ride demand over time, with intensity indicating the volume of rides per location and hour. It highlights peak demand at specific times, such as Location A around 10 AM and Location B around 12 PM, aiding in more informed driver scheduling decisions.
+
+---
+
+### Expansion and Future Suggestions
+
+- Future Orders: Allow riders to schedule future rides.
+- Subscriptions: Introduce business or regular subscriptions with discounts for regular users.
+- Driver Shift History: Track driver shift history, total income, commissions, and ride counts.
+- Driver Rating: Implement a dynamic driver rating system influencing prioritization.
+- Analytics: Add an analytics dashboard for ride demand, driver performance, and customer trends.
