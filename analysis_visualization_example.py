@@ -4,8 +4,6 @@ import seaborn as sns
 
 # Sample DataFrame with a broader range of time slots and locations
 data = {
-    'RideDate': ['2024-11-18', '2024-11-18', '2024-11-18', '2024-11-18', '2024-11-18', 
-                 '2024-11-19', '2024-11-19', '2024-11-19', '2024-11-19', '2024-11-19'],
     'RideHour': [8, 9, 10, 11, 12, 8, 9, 10, 11, 12],
     'PickupLocation': ['Location A', 'Location A', 'Location A', 'Location A', 'Location A', 
                        'Location B', 'Location B', 'Location B', 'Location B', 'Location B'],
@@ -14,10 +12,7 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Combine RideDate and RideHour into a single datetime column
-df['RideTime'] = pd.to_datetime(df['RideDate']) + pd.to_timedelta(df['RideHour'], unit='h')
-
-# Pivot the dataframe to create a matrix suitable for a heatmap
+# Pivot the DataFrame to create a matrix suitable for a heatmap
 pivot_df = df.pivot_table(
     index='RideHour', 
     columns='PickupLocation', 
@@ -31,10 +26,10 @@ plt.figure(figsize=(10, 6))
 sns.heatmap(
     pivot_df,
     cmap='YlGnBu',  
-    annot=True,
-    fmt='d',  
-    linewidths=0.5,  
-    cbar_kws={'label': 'Total Rides'}  
+    annot=True,       # Annotate cells with the number of rides
+    fmt='d',          # Format annotations as integers
+    linewidths=0.5,   # Cell borders
+    cbar_kws={'label': 'Total Rides'}  # Color bar label
 )
 
 # Customize the plot
