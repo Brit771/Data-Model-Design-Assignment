@@ -5,7 +5,7 @@
 ### Project Overview
 
 This repository contains the solution to a data model design assignment for a ride-hailing company.
-It includes a complete relational database design, raw data assumptions, an ER diagram, SQL schema, analysis scripts, visualization, and supporting documentation.
+It includes a complete relational database design, raw data description, an ER diagram, SQL schema, analysis and visualization scripts, and supporting documentation.
 
 ![alt text](assets/image.png)
 
@@ -23,15 +23,18 @@ It includes a complete relational database design, raw data assumptions, an ER d
 4. [**`ER_diagram.png`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/ER_diagram.png): ER diagram illustrating the relationships in the data model.
 5. [**`create_table.sql`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/create_table.sql): SQL script to create a few tables from the schema.
 6. [**`analysis.sql`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/analysis.sql): SQL script for generating analysis outcomes.
-7. [**`analysis_visualization_example.py`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/analysis_visualization_example.py): Python script to visualize analysis results.
-8. [**`requirements.txt`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/requirements.txt) - Required Python libraries for running the analysis visualization.
+
+In addition to the assignment requirements, the repository also includes:
+
+1. [**`analysis_visualization_example.py`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/analysis_visualization_example.py): Python script to visualize the outcome analysis results.
+2. [**`requirements.txt`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/requirements.txt) - Required Python libraries for running the analysis visualization.
 
 ### Requirements
 
-To run the analysis and visualization scripts, the following are required:
+To run the analysis visualization script, the following are required:
 
 - Python 3.9+
-- Python libraries specified in the `requirements.txt` file.
+- Install dependencies from the `requirements.txt` file.
 
 ### How to Use
 
