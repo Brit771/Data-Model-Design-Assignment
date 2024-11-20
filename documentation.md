@@ -5,7 +5,7 @@
 2. Outcomes and Analysis
 3. Expansion and Future Suggestions
 
--- 
+---
 
 ## Design Decisions and Assumptions
 
@@ -36,15 +36,17 @@
 
 ### Relationships
 
-- Drivers: A driver registers in the system and is stored in the Drivers table, where static driver information is kept. When a driver becomes active, they enter the Active Drivers table, which links them to a vehicle in the Vehicles table.
-- Vehicles: A vehicle is assigned to only one driver in the Active drivers table.
-- Active Drivers: Active drivers are linked to their vehicles in the Active Drivers table. Only active drivers receive ride offers, based on proximity and availability.
-- Riders: A rider places ride orders.
-- Order: The order is sent as an offer to relevant active drivers.
-- Offers: Sent to active drivers for ride offers.
-- Rides: The actual ride is recorded in the Rides table once a driver is selected for the ride.
-- Payments: After the ride, payment is made via credit card. The payment is recorded in the Payments table, which is linked to the Credit Cards table (linked to the rider).
-- Credit Cards: The riders credit Cards are stored in the Credit Cards table.
+- **Drivers ↔ Active Drivers**: A driver becomes active by being linked to an active driver entry with vehicle and location info.
+- **Active Drivers ↔ Vehicles**: Each active driver is linked to a single and unique vehicle.
+- **Riders ↔ Orders**: A rider can place multiple orders, but each order belongs to one rider.
+- **Orders ↔ Driver Offers**: Each order can havea multiple driver offers that sent to a active drivers, but each offer is linked to one order.
+- **Active Drivers ↔ Driver Offers**: Active driver can get multiple offers, and offer is uniqe for a driver.
+offer can be sent Each Driver Offers sent to an active driver. 
+- **Driver Offers ↔ Rides**: Driver offer leads to a ride if accepted, with one offer linked to one ride.
+- **Rides ↔ Payments**: Each ride has one associated payment once completed.
+- **Credit Cards ↔ Payments**: A payment is associated with a single credit card, but each credit card can be linked to multiple payments.
+- **Riders ↔ Credit Cards**: A rider can have multiple credit cards, each linked to one rider.
+- **Rides ↔ Rates**: After the ride, a rider can rate it, linking one rating to one ride.
 
 ---
 
