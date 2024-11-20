@@ -5,7 +5,6 @@
 
 1. [Design Decisions and Assumptions](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#design-decisions-and-assumptions)
 2. [Outcomes and Analysis](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#outcomes-and-analysis)
-3. [Expansion and Future Suggestions](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#expansion-and-future-suggestions)
 
 ---
 
