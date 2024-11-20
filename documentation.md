@@ -58,7 +58,7 @@ offer can be sent Each Driver Offers sent to an active driver.
 
 - Demand analysis tracks ride demand by time and location, helping to identify peak periods and high-demand areas.
 
-- This analysis aggregates ride data by date, hour, and pickup location to uncover patterns in demand across different times and locations.
+- This analysis aggregates ride data by hour, and pickup location to uncover patterns in demand across different times and locations.
 
 - Business Value - Understanding peak demand allows for better resource allocation, ensuring sufficient drivers are available in high-demand areas, reducing wait times and improving service efficiency.
 
@@ -75,7 +75,6 @@ The heatmap above illustrates ride demand over time, with intensity indicating t
 ### Expansion and Future Suggestions
 
 - Future Orders: Allow riders to schedule future rides.
-- Subscriptions: Introduce business or regular subscriptions with discounts for regular users.
+- Subscriptions: Introduce business or regular subscriptions with discounts for business users.
 - Driver Shift History: Track driver shift history, total income, commissions, and ride counts.
 - Driver Rating: Implement a dynamic driver rating system influencing prioritization.
-- Analytics: Add an analytics dashboard for ride demand, driver performance, and customer trends.
