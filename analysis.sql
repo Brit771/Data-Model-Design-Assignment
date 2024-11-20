@@ -3,11 +3,11 @@
 
 SELECT 
     HOUR(StartTime) AS RideHour,
-    COALESCE(PickupLocation, 'Unknown') AS PickupLocation,
+    COALESCE(SUBSTRING_INDEX(PickupLocation, ' ', 1), 'Unknown') AS PickupArea,
     COUNT(DISTINCT RideID) AS TotalRides
 FROM Rides
 WHERE RideStatus = 'Completed' AND StartTime IS NOT NULL
-GROUP BY RideHour, PickupLocation
+GROUP BY RideHour, PickupArea
 ORDER BY RideHour ASC, TotalRides DESC;
 
 -- Explanation:
@@ -15,3 +15,4 @@ ORDER BY RideHour ASC, TotalRides DESC;
 -- Aggregates completed rides by hour, and pickup location.
 -- Counts rides for each location-time combination.
 -- Sorts results chronologically, with busiest times/locations prioritized.
+-- Location field foramt: Area/Zone, Street Name, City, Postal Code
