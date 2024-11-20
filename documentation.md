@@ -65,7 +65,7 @@
 
 # Potential Limitations of Current Design
 
-Here are a few Limitations of Current Design and solutions suggestion to address them:
+Here are a few limitations of the current design and solutions suggestions to address them:
 
 | **Subject**                   | **Limitation**                                                                                      | **Solution**                                                                                             |
 |-------------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
