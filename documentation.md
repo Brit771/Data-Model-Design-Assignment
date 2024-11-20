@@ -4,6 +4,10 @@
 ## Table of Contents
 
 1. [Design Decisions and Assumptions](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#design-decisions-and-assumptions)
+    - [Table Structure](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#table-structure)
+    - [Assumptions](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#assumptions)
+    - [Relationships](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#relationships)
+    - [Potential Limitations of Current Design](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#potential-limitations-of-current-design)
 2. [Outcomes and Analysis](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md#outcomes-and-analysis)
 
 ---
