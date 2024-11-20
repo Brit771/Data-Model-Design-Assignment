@@ -54,6 +54,7 @@ CREATE TABLE Rides (
     FOREIGN KEY (OfferID) REFERENCES DriverOffers(OfferID)
 );
 
+
 CREATE TABLE Ratings (
   RatingID INT AUTO_INCREMENT,
   RideID INT NOT NULL,
