@@ -18,7 +18,7 @@ This repository contains the solution to a data model design assignment for a ri
    * Script for creating a few tables from the schema.
 4. **Outcome Generation** - [**`analysis.sql`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/analysis.sql)
    * SQL script for generating outcome from the data model.
-5. **Documentation** - [**`documentation.md`**:](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md)
+5. **Documentation** - [**`documentation.md`**](https://github.com/Brit771/Data-Model-Design-Assignment/blob/main/documentation.md)
    * Explains the approach, assumptions, design decisions, and a brief explanation of the outcome analysis and its visualization.
 
 ### Additional Components
